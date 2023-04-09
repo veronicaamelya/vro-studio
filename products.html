@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>studio vro</title>
+	<style>
+		body {
+			font-family: 'Times New Roman', Times, serif;
+			padding: 0;
+			margin: 0;
+			background-color: #f2f2f2;
+		}
+
+		header {
+            background-image: url(background.jpeg);
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+			color: #d4e6ee;
+			padding: 20px;
+			text-align: center;
+			font-size: 76px;
+			font-weight: bold;
+            letter-spacing: 7px;
+			text-shadow: 3px 1px #2d768e;
+		}
+
+        .logo {
+            position: absolute;
+            top: 18%;
+            left: 5%;
+            transform: translateY(-50%);
+            width: 90px; /* ukuran logo */
+            height: 50px;
+        }
+
+		.logo2 {
+            position: absolute;
+            top: 18%;
+            left: 88%;
+            transform: translateY(-50%);
+            width: 90px; /* ukuran logo */
+            height: 50px;
+        }
+
+
+		nav {
+			background-color: #eee4f6ba;
+			color: #e6a3a3;
+			padding: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 18px;
+			box-shadow: none;
+		}
+
+		nav ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+		}
+
+		nav li {
+			margin-right: 20px;
+		}
+
+        nav ul li {
+            text-shadow: none;
+        }
+
+		nav a {
+			color: #74933c;
+			text-decoration: none;
+			padding: 10px;
+			border-radius: 5px;
+		}
+
+		nav a:hover {
+			background-color: #f5eded;
+			color: #f4eaea;
+			transition: all 0.3s ease-in-out;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border: none;
+
+		}
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+		
+		td {
+			width: 50%;
+		}
+
+		article {
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+			margin: 20px;
+			padding: 20px;
+			width: 300px;
+			height: 400px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			overflow: hidden;
+			position: relative;
+		}
+
+		article img {
+			max-width: 100%;
+			max-height: 70%;
+			object-fit: cover;
+		}
+
+		article h3 {
+			font-size: 24px;
+			margin-top: 0;
+		}
+
+		article p {
+			font-size: 18px;
+			line-height: 1.5;
+			margin: 0;
+		}
+
+		article span {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			background-color: #f00;
+			color: #fff;
+			padding: 5px 10px;
+			border-radius: 5px;
+			font-size: 16px;
+			font-weight: bold;
+			text-shadow: 1px 1px #333;
+		}
+
+		footer {
+			background-color: #eee4f6ba;
+			color: #d69cff;
+			padding: 20px;
+			text-align: center;
+			font-size: 18px;
+			box-shadow: none;
+		}
+	</style>
+</head>
+<body>
+    <header>
+      <!-- Header -->
+	<header style="font-family: Brush Script MT;">
+        <img src="flower.png" alt="logo" class="logo">
+		<img src="flower2.png" alt="logo2" class="logo2">
+        Vro Studio
+    </header>
+      
+      <nav>
+        <ul>
+          <li><a href="studio.html">studio</a></li>
+          <li><a href="product.html">products</a></li>
+          <li><a href="cart.html">cart</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- Product List -->
+	  <div style="display: flex; justify-content: center;">
+		<h1>Magic Shop</h1>
+	  </div>
+     
+      <table>
+		<tr>
+			<td>
+				<h2>Gojo Standee</h2>	
+          		<img src="produk1.jpeg" alt="Product 1" width="200" height="300">
+          		<p>Standee Wheel Gojo Satoru</p>
+          		<p>Price: $10</p>
+          		<button onclick="addToCart(10)">Add to Cart</button>
+			</td>
+			<td>
+        		<h2>Painting Acrylic Gojo</h2>
+          		<img src="produk2.jpeg" alt="Product 2" width="200" height="300">
+          		<p>Acrylic Painting Gojo Satoru</p>
+          		<p>Price: $15</p>
+          		<button onclick="addToCart(15)">Add to Cart</button>
+			</td>
+		</tr>
+        <tr>
+			<td>
+          		<h2>Moriarty The Patriot 11</h2>
+          		<img src="produk3.jpeg" alt="Product 3" width="200" height="300">
+          		<p>Comic Bahasa Moriarty The Patriot Vol.11</p>
+          		<p>Price: $20</p>
+          		<button onclick="addToCart(20)">Add to Cart</button>
+			</td>
+			<td>
+				<h2>Attack on Titan 27</h2>
+          		<img src="produk4.jpeg" alt="Product 4" width="200" height="300">
+          		<p>Comic Bahasa Attack on Titan Vol.27</p>
+          		<p>Price: $20</p>
+          		<button onclick="addToCart(20)">Add to Cart</button>
+			</td>
+		</tr>
+	</table>
+
+      <!-- Cart -->
+      <div id="cart">
+        <h2>Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total Price: $<span id="total-price">0</span></p>
+        <button onclick="cancel()">Cancel</button>
+        <button onclick="checkout()">Checkout</button>
+      </div>
+    </main>
+    <footer>
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2023 Vro Online Shop</p>
+      </footer>
+    </footer>
+
+    <script>
+      let cartItems = [];
+      let totalPrice = 0;
+
+      function addToCart(price) {
+        const product = event.target.parentNode;
+        const productName = product.querySelector('h2').innerText;
+        cartItems.push(productName);
+        totalPrice += price;
+        renderCartItems();
+      }
+
+      function renderCartItems() {
+        const cartItemsList = document.getElementById('cart-items');
+        cartItemsList.innerHTML = '';
+        cartItems.forEach(item => {
+          const li = document.createElement('li');
+          li.innerText = item;
+          cartItemsList.appendChild(li);
+        });
+
+        const totalPriceElement = document.getElementById('total-price');
+        totalPriceElement.innerText = totalPrice;
+      }
+
+      function checkout() {
+        alert('Checkout Successful! Total Price: $' + totalPrice);
+        cartItems = [];
+        totalPrice = 0;
+        renderCartItems();
+      }
+
+      function cancel() {
+        cartItems = [];
+        totalPrice = 0;
+        renderCartItems();
+      }
+    </script>
+  </body>
+</html>

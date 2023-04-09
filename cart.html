@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>studio vro</title>
+	<style>
+		body {
+			font-family: 'Times New Roman', Times, serif;
+            padding: 0;
+			margin: 0;
+			background-color: #f2f2f2;
+		}
+
+		header {
+            background-image: url(background.jpeg);
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+			color: #d4e6ee;
+			padding: 20px;
+			text-align: center;
+			font-size: 76px;
+			font-weight: bold;
+            letter-spacing: 7px;
+			text-shadow: 3px 1px #2d768e;
+		}
+
+        .logo {
+            position: absolute;
+            top: 18%;
+            left: 5%;
+            transform: translateY(-50%);
+            width: 90px; /* ukuran logo */
+            height: 50px;
+        }
+
+		.logo2 {
+            position: absolute;
+            top: 18%;
+            left: 88%;
+            transform: translateY(-50%);
+            width: 90px; /* ukuran logo */
+            height: 50px;
+        }
+
+		nav {
+			background-color: #eee4f6ba;
+			color: #e6a3a3;
+			padding: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 18px;
+			box-shadow: none;
+		}
+
+		nav ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+		}
+
+		nav li {
+			margin-right: 20px;
+		}
+
+        nav ul li {
+            text-shadow: none;
+        }
+
+		nav a {
+			color: #74933c;
+			text-decoration: none;
+			padding: 10px;
+			border-radius: 5px;
+		}
+
+		nav a:hover {
+			background-color: #f5eded;
+			color: #f4eaea;
+			transition: all 0.3s ease-in-out;
+		}
+
+		section {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			padding: 20px;
+		}
+
+		article {
+			background-color: #f4eded;
+			border-radius: 5px;
+			box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+			margin: 20px;
+			padding: 20px;
+			width: 300px;
+			height: 400px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			overflow: hidden;
+			position: relative;
+		}
+
+		article img {
+			max-width: 100%;
+			max-height: 70%;
+			object-fit: cover;
+		}
+
+		article h3 {
+			font-size: 24px;
+			margin-top: 0;
+		}
+
+		article p {
+			font-size: 18px;
+			line-height: 1.5;
+			margin: 0;
+		}
+
+		article span {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			background-color: #f00;
+			color: #f7f6f6;
+			padding: 5px 10px;
+			border-radius: 5px;
+			font-size: 16px;
+			font-weight: bold;
+			text-shadow: 1px 1px #333;
+		}
+
+		footer {
+			background-color: #eee4f6ba;
+			color: #d69cff;
+			padding: 20px;
+			text-align: center;
+			font-size: 18px;
+			box-shadow: none;
+		}
+	</style>
+</head>
+<body>
+    <header>
+      <!-- Header -->
+    <header style="font-family: Brush Script MT;">
+        <img src="flower.png" alt="logo" class="logo">
+		<img src="flower2.png" alt="logo2" class="logo2">
+        Vro Studio
+    </header>
+
+    <nav>
+        <ul>
+          <li><a href="studio.html">studio</a></li>
+          <li><a href="product.html">products</a></li>
+          <li><a href="cart.html">cart</a></li>
+    </nav>
+        </ul>
+    </header>
+<main>
+  <!-- Cart Items -->
+  <h1>Cart</h1>
+  <ul id="cart-items"></ul>
+
+  <!-- Checkout -->
+  <div id="checkout">
+    <h2>Checkout</h2>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br><br>
+      <label for="address">Address:</label>
+      <textarea id="address" name="address"></textarea><br><br>
+      <button onclick="checkout()">Checkout</button>
+    </form>
+  </div>
+</main>
+<footer>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 vro studio</p>
+  </footer>
+</footer>
+
+<script>
+  let cartItems = [];
+
+  function renderCartItems() {
+    const cartItemsList = document.getElementById('cart-items');
+    cartItemsList.innerHTML = '';
+    cartItems.forEach(item => {
+      const li = document.createElement('li');
+      li.innerText = item;
+      cartItemsList.appendChild(li);
+    });
+  }
+
+  function checkout() {
+    // Get user input
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const address = document.getElementById('address').value;
+
+    // Calculate total price
+    const totalPrice = cartItems.length * 10;
+
+    // Send order details to server
+    // ...
+
+    // Reset cart
+    cartItems = [];
+    renderCartItems();
+
+    // Show success message
+    alert(`Thank you for your order, ${name}! Your total is $${totalPrice}.`);
+  }
+
+  // Render cart items on page load
+  renderCartItems();
+</script>
+</body>
+</html>
